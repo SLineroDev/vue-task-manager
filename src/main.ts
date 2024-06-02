@@ -1,3 +1,4 @@
+import '@fontsource/poppins'
 import './assets/main.css'
 
 import { createApp } from 'vue'
