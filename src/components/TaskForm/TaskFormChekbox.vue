@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppCheck from '@/components/AppCheck.vue'
+
 const value = defineModel({
   type: Boolean,
   default: false

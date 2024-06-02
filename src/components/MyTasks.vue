@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTasksProviderInject } from '@/composables/useTasksProvider'
-import AppPlusIcon from '@/components/icons/AppPlusIcon.vue'
 import TaskItem from '@/components/TaskItem.vue'
+import AppPlusIcon from '@/components/icons/AppPlusIcon.vue'
+import { useTasksProviderInject } from '@/composables/useTasksProvider'
 import AppButton from './AppButton.vue'
 
 const { tasks } = useTasksProviderInject()

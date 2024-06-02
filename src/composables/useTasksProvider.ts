@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE_KEY } from '@/constants'
 import type { Task } from '@/types'
-import { ref, computed, provide, type Ref, type ComputedRef, type InjectionKey, inject } from 'vue'
+import { computed, inject, provide, ref, type ComputedRef, type InjectionKey, type Ref } from 'vue'
 
 export interface TasksProvider {
   tasks: Ref<Task[]>

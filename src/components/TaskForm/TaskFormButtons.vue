@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import AppButton from '@/components/AppButton.vue'
 import AppEditIcon from '@/components/icons/AppEditIcon.vue'
 import AppPlusIcon from '@/components/icons/AppPlusIcon.vue'
 import AppSaveIcon from '@/components/icons/AppSaveIcon.vue'
 import AppTrashIcon from '@/components/icons/AppTrashIcon.vue'
-import AppButton from '@/components/AppButton.vue'
 
 const { isNewTask, isEditing } = defineProps({
   isNewTask: {

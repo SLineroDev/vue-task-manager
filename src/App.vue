@@ -10,13 +10,11 @@ const { tasks, nextId } = useTasksProvider()
 
 const dialogRef = ref<InstanceType<typeof TheDialog>>()
 
-/* 
-Commented for development purposes
 onMounted(() => {
   const savedTasks = localStorage.getItem(LOCAL_STORAGE_KEY)
   if (!savedTasks) return
   tasks.value = JSON.parse(savedTasks)
-}) */
+})
 
 function openDialog(taskId?: number) {
   dialogRef.value?.openDialog(taskId || nextId.value, taskId === undefined)

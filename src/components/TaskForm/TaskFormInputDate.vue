@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppDateReadOnly from '@/components/AppDateReadOnly.vue'
+
 const value = defineModel({
   type: String,
   default: ''
