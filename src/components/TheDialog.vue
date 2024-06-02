@@ -18,7 +18,7 @@ defineExpose({
     @close="closeDialog">
     <div class="p-6 wrapper">
       <TheDialogHeader v-if="taskId" :key="taskId" />
-      <TaskForm v-if="taskId" :key="taskId" :task-id="taskId" />
+      <TaskForm v-if="taskId" :key="taskId" :task-id="taskId" @close-dialog="closeDialog" />
     </div>
   </dialog>
 </template>

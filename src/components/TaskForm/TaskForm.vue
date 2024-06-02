@@ -65,6 +65,7 @@ function onEdit() {
 }
 
 function cancel() {
+  if (isNewTask.value) return emit('close-dialog')
   isEditing.value = false
   localTask.value = { ...initialTask.value }
 }
