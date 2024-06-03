@@ -31,7 +31,7 @@ const emit = defineEmits(['click'])
         'bg-transparent text:dark dark:text-light border border-dark dark:border-light hover:bg-dark dark:hover:bg-light hover:text-light dark:hover:text-dark':
           color === 'outline'
       },
-      { 'bg-danger text-light stroke-light hover:bg-danger-hover': color === 'danger' }
+      { 'bg-danger text-light hover:bg-danger-hover': color === 'danger' }
     ]"
     @click="() => emit('click')">
     <slot></slot>

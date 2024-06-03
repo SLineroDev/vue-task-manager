@@ -7,12 +7,12 @@ import TaskFormInputTextarea from './TaskFormInputTextarea.vue'
 interface Props {
   type: 'text' | 'textarea' | 'date' | 'checkbox'
   isEditing: boolean
-  isValid?: boolean
+  showError?: boolean
   errorMessage?: string
 }
 
 const value = defineModel<String>()
-const { type, isEditing, isValid, errorMessage } = defineProps<Props>()
+const { type, isEditing, showError, errorMessage } = defineProps<Props>()
 const titleRef = ref<InstanceType<typeof TaskFormInputText>>()
 
 function focus() {
@@ -31,14 +31,14 @@ defineExpose<{ focus: () => void }>({ focus })
       v-if="type === 'text'"
       v-model="value"
       :isEditing="isEditing"
-      :isValid="isValid" />
+      :showError="showError" />
     <TaskFormInputTextarea v-else-if="type === 'textarea'" v-model="value" :isEditing="isEditing" />
     <TaskFormInputDate
       v-else-if="type === 'date'"
       v-model="value"
       :isEditing="isEditing"
-      :isValid="isValid" />
-    <span class="pt-1 text-sm text-danger-hover" :class="{ hidden: isValid }">
+      :showError="showError" />
+    <span v-show="showError" class="pt-1 text-sm text-danger-hover" :class="{ hidden: !showError }">
       {{ errorMessage }}
     </span>
   </label>

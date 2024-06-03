@@ -17,20 +17,7 @@ function updateTasksFromLocalStorage(tasks: Task[]) {
 }
 
 export const useTasksProvider: () => TasksProvider = () => {
-  const tasks = ref<Task[]>([
-    { id: 1, title: 'Learn HTML', done: true },
-    {
-      id: 2,
-      title: 'Learn JavaScript',
-      dueDate: '2024-06-22',
-      description: 'Design and develop a visually appealing and highly functional landing...',
-      done: true
-    },
-    { id: 3, title: 'Learn Vue', dueDate: '2024-06-22', done: false },
-    { id: 4, title: 'Learn Nuxt', dueDate: '2024-06-22', done: false },
-    { id: 5, title: 'Learn Tailwind', dueDate: '2024-06-22', done: false },
-    { id: 6, title: 'Learn TypeScript', dueDate: '2024-06-22', done: false }
-  ])
+  const tasks = ref<Task[]>([])
 
   const nextId = computed(() =>
     tasks.value.length > 0 ? tasks.value[tasks.value.length - 1].id + 1 : 1

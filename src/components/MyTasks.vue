@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import TaskItem from '@/components/TaskItem.vue'
+import TaskForm from '@/components/TaskForm/TaskForm.vue'
 import AppPlusIcon from '@/components/icons/AppPlusIcon.vue'
-import { useTasksProviderInject } from '@/composables/useTasksProvider'
+import { useTasksProviderInject } from '@/providers/useTasksProvider'
 import AppButton from './AppButton.vue'
 
-const { tasks } = useTasksProviderInject()
+const { tasks, nextId } = useTasksProviderInject()
 
 const emit = defineEmits(['open-dialog'])
 function openDialog(taskId?: number) {
@@ -23,6 +24,7 @@ function openDialog(taskId?: number) {
   <TransitionGroup
     tag="section"
     name="tasks"
+    mode="out-in"
     enter-active-class="duration-500 transform"
     leave-active-class="duration-500 transform"
     enter-from-class="scale-0 opacity-0"
@@ -35,7 +37,9 @@ function openDialog(taskId?: number) {
       :task="task"
       @open-task="() => openDialog(task.id)" />
   </TransitionGroup>
+  <TaskForm v-if="tasks.length === 0" :task-id="nextId" />
   <div
+    v-if="tasks.length > 0"
     class="absolute w-[98%] h-1/6 bottom-0 bg-gradient-to-t transition-all from-light dark:from-secondary via-light dark:via-secondary to-transparent z-10 text-center mx-auto flex items-center justify-center gap-4 animate-fadeIn">
     <AppButton @click="openDialog">
       <span>Add Task</span>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppDateReadOnly from '@/components/AppDateReadOnly.vue'
 import AppTrashIcon from '@/components/icons/AppTrashIcon.vue'
-import { TASKS_PROVIDER_KEY } from '@/composables/useTasksProvider'
+import { TASKS_PROVIDER_KEY } from '@/providers/useTasksProvider'
 import type { Task } from '@/types'
 import { inject, type PropType } from 'vue'
 import AppCheck from './AppCheck.vue'
@@ -35,16 +35,16 @@ const emit = defineEmits(['open-task'])
           class="inline-block max-w-full pt-1 overflow-hidden truncate border-t border-muted dark:text-muted">
           {{ task.description }}
         </p>
-        <div class="flex gap-4 md:hidden" v-if="task.dueDate">
+        <div class="flex gap-4 md:hidden">
           <AppDateReadOnly :date="task.dueDate" />
         </div>
       </div>
-      <div class="hidden gap-4 md:flex" v-if="task.dueDate">
+      <div class="hidden gap-4 md:flex">
         <AppDateReadOnly :date="task.dueDate" />
       </div>
     </div>
     <div
-      class="items-center self-center hidden h-full p-4 -ml-3 transition-transform -translate-x-full cursor-pointer sm:flex pl-7 bg-danger rounded-r-2xl hover:bg-danger-hover group-hover:-translate-x-0"
+      class="items-center self-center hidden h-full p-4 -ml-3 transition-transform -translate-x-full cursor-pointer sm:flex pl-7 text-light dark:text-dark bg-danger rounded-r-2xl hover:bg-danger-hover group-hover:-translate-x-0"
       @click.stop="() => removeTask(task.id)">
       <AppTrashIcon />
     </div>

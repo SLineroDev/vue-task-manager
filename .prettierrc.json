@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/prettierrc",
   "bracketSameLine": true,
   "htmlWhitespaceSensitivity": "ignore",
-  "printWidth": 100,
+  "printWidth": 120,
   "semi": false,
   "singleQuote": true,
   "tabWidth": 2,

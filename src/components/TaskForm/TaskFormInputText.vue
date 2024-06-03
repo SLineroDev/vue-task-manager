@@ -2,14 +2,14 @@
 import { ref } from 'vue'
 
 const value = defineModel<String>()
-const { isEditing, isValid } = defineProps({
+const { isEditing, showError } = defineProps({
   isEditing: {
     type: Boolean,
     default: false
   },
-  isValid: {
+  showError: {
     type: Boolean,
-    default: true
+    default: false
   }
 })
 
@@ -30,7 +30,7 @@ defineExpose<{ focus: () => void }>({ focus })
         'bg-white dark:!bg-black outline-none pointer-events-none p-0 focus-visible:!outline-none':
           !isEditing
       },
-      { 'ring-1 ring-danger focus-visible:outline-none focus:outline-none': !isValid }
+      { 'ring-1 ring-danger focus-visible:outline-none focus:outline-none': showError }
     ]"
     v-model="value"
     :readonly="!isEditing"

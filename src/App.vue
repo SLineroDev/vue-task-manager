@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import TheDialog from '@/components/TheDialog.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import MyTasks from '@/components/MyTasks.vue'
-import { useTasksProvider } from '@/composables/useTasksProvider'
+import { useTasksProvider } from '@/providers/useTasksProvider'
 import { LOCAL_STORAGE_KEY } from './constants'
 
 const { tasks, nextId } = useTasksProvider()
