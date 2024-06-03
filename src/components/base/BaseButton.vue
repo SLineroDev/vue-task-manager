@@ -22,7 +22,9 @@ const emit = defineEmits(['click'])
     :type="type"
     class="flex gap-2 p-4 leading-6 transition-colors rounded-3xl"
     :class="[
-      { 'bg-primary text-light stroke-light hover:bg-primary-hover': color === 'primary' },
+      {
+        'bg-primary text-white stroke-white dark:text-dark dark:stroke-dark hover:bg-primary-hover': color === 'primary'
+      },
       {
         'bg-dark dark:bg-light text-light dark:text-dark hover:bg-transparent hover:text-dark hover:outline hover:outline-1 hover:outline-dark dark:hover:outline-light dark:hover:text-light ':
           color === 'default'
