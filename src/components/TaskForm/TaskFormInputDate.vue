@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppDateReadOnly from '@/components/AppDateReadOnly.vue'
+import BaseDateReadOnly from '@/components/base/BaseDateReadOnly.vue'
 
 const value = defineModel({
   type: String,
@@ -19,7 +19,7 @@ const { isEditing, showError } = defineProps({
 
 <template>
   <div v-if="!isEditing" class="flex items-center gap-4 p-2">
-    <AppDateReadOnly :date="value" />
+    <BaseDateReadOnly :date="value" />
   </div>
   <input
     type="date"

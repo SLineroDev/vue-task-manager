@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TaskItem from '@/components/TaskItem.vue'
 import TaskForm from '@/components/TaskForm/TaskForm.vue'
+import TaskItem from '@/components/TaskItem/TaskItem.vue'
+import BaseButton from '@/components/base/BaseButton.vue'
 import AppPlusIcon from '@/components/icons/AppPlusIcon.vue'
 import { useTasksProviderInject } from '@/providers/useTasksProvider'
-import AppButton from './AppButton.vue'
 
 const { tasks, nextId } = useTasksProviderInject()
 
@@ -22,6 +22,7 @@ function openDialog(taskId?: number) {
     <span v-if="tasks.length == 0">You don't have any tasks yet. Let's create one!</span>
   </div>
   <TransitionGroup
+    v-if="tasks.length > 0"
     tag="section"
     name="tasks"
     mode="out-in"
@@ -37,16 +38,16 @@ function openDialog(taskId?: number) {
       :task="task"
       @open-task="() => openDialog(task.id)" />
   </TransitionGroup>
-  <TaskForm v-if="tasks.length === 0" :task-id="nextId" />
+  <TaskForm v-if="tasks.length === 0" :task-id="nextId" id="emptyForm" class="mt-3" />
   <div
     v-if="tasks.length > 0"
     class="absolute w-[98%] h-1/6 bottom-0 bg-gradient-to-t transition-all from-light dark:from-secondary via-light dark:via-secondary to-transparent z-10 text-center mx-auto flex items-center justify-center gap-4 animate-fadeIn">
-    <AppButton @click="openDialog">
+    <BaseButton @click="openDialog">
       <span>Add Task</span>
       <template #icon>
         <AppPlusIcon />
       </template>
-    </AppButton>
+    </BaseButton>
   </div>
 </template>
 

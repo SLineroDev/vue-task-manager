@@ -26,6 +26,8 @@ html,
 body,
 #app {
   min-height: 100svh;
+  max-height: 100svh;
+  overflow: hidden;
   height: 100svh;
   width: 100%;
 }

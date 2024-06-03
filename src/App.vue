@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import TaskItemList from '@/components/TaskItem/TaskItemList.vue'
 import TheDialog from '@/components/TheDialog.vue'
 import TheHeader from '@/components/TheHeader.vue'
-import MyTasks from '@/components/MyTasks.vue'
 import { useTasksProvider } from '@/providers/useTasksProvider'
+import { onMounted, ref } from 'vue'
 import { LOCAL_STORAGE_KEY } from './constants'
 
 const { tasks, nextId } = useTasksProvider()
@@ -26,7 +26,7 @@ function openDialog(taskId?: number) {
     <TheDialog ref="dialogRef" />
   </Teleport>
   <TheHeader />
-  <main class="relative flex flex-col h-[calc(100svh-6rem)] overflow-y-hidden">
-    <MyTasks @open-dialog="openDialog" />
+  <main class="relative flex flex-col min-h-0 h-[calc(100svh-6rem)]" :class="{ 'overflow-y-auto': tasks.length === 0 }">
+    <TaskItemList @open-dialog="openDialog" />
   </main>
 </template>

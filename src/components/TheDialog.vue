@@ -12,6 +12,7 @@ defineExpose({
 
 <template>
   <dialog
+    id="theDialog"
     ref="dialogRef"
     class="w-full m-auto shadow-md focus:outline-none rounded-2xl dark:text-light dark:bg-dark md:max-w-2xl backdrop:animate-fadeIn backdrop:bg-stone-900/90 animate-scaleDown open:animate-scaleUp"
     @click="handleClickOutside"

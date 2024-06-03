@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AppDateReadOnly from '@/components/AppDateReadOnly.vue'
+import BaseCheck from '@/components/base/BaseCheck.vue'
+import BaseDateReadOnly from '@/components/base/BaseDateReadOnly.vue'
 import AppTrashIcon from '@/components/icons/AppTrashIcon.vue'
 import { TASKS_PROVIDER_KEY } from '@/providers/useTasksProvider'
 import type { Task } from '@/types'
 import { inject, type PropType } from 'vue'
-import AppCheck from './AppCheck.vue'
 
 const { task } = defineProps({
   task: {
@@ -24,7 +24,7 @@ const emit = defineEmits(['open-task'])
       class="box-border z-[1] min-w-0 flex items-center justify-between flex-1 gap-6 py-4 bg-white dark:bg-dark rounded-2xl px-7 hover:ring-inset hover:ring-1 hover:ring-stone-600 focus:"
       @click="() => emit('open-task', task.id)">
       <label class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
-        <AppCheck :value="task.done" />
+        <BaseCheck :value="task.done" />
       </label>
       <div class="flex flex-col flex-1 min-w-0 gap-2">
         <span class="-mb-3 text-sm dark:text-muted">#{{ task.id }}</span>
@@ -36,11 +36,11 @@ const emit = defineEmits(['open-task'])
           {{ task.description }}
         </p>
         <div class="flex gap-4 md:hidden">
-          <AppDateReadOnly :date="task.dueDate" />
+          <BaseDateReadOnly :date="task.dueDate" />
         </div>
       </div>
       <div class="hidden gap-4 md:flex">
-        <AppDateReadOnly :date="task.dueDate" />
+        <BaseDateReadOnly :date="task.dueDate" />
       </div>
     </div>
     <div

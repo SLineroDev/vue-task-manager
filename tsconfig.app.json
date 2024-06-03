@@ -5,7 +5,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": ["@testing-library/vue", "vitest/globals"]
   },
   "exclude": ["src/**/__tests__/*"],
   "extends": "@vue/tsconfig/tsconfig.dom.json",

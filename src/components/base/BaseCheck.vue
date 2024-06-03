@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppCheckIcon from './icons/AppCheckIcon.vue'
+import AppCheckIcon from '@/components/icons/AppCheckIcon.vue'
 
 /* const value = defineModel({ type: Boolean, default: false }) */
 const { value, readOnly } = defineProps({
@@ -17,12 +17,7 @@ const emit = defineEmits(['change'])
 </script>
 
 <template>
-  <input
-    type="checkbox"
-    :value="value"
-    class="sr-only"
-    @change="() => emit('change')"
-    :disabled="readOnly" />
+  <input type="checkbox" :value="value" class="sr-only" @change="() => emit('change')" :disabled="readOnly" />
   <div
     class="flex items-center justify-center w-6 h-6 border-2 border-gray-400 rounded focus:"
     :class="{ 'border-green-500': value }">
