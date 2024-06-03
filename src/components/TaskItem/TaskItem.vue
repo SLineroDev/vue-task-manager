@@ -24,8 +24,8 @@ const emit = defineEmits(['open-task'])
       :data-test-id="`TASK_ITEM_${task.id}`"
       class="box-border z-[1] min-w-0 flex items-center justify-between flex-1 gap-6 py-4 bg-white dark:bg-dark rounded-2xl px-7 hover:ring-inset hover:ring-1 hover:ring-stone-600 focus:"
       @click="() => emit('open-task', task.id)">
-      <label class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
-        <BaseCheck :value="task.done" />
+      <label :for="`check-task-${task.id}`" class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
+        <BaseCheck :value="task.done" :id="`check-task-${task.id}`" />
       </label>
       <div class="flex flex-col flex-1 min-w-0 gap-2">
         <span class="-mb-3 text-sm dark:text-muted">#{{ task.id }}</span>

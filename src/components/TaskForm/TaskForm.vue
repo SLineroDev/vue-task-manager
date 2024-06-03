@@ -81,7 +81,7 @@ function submit() {
 </script>
 
 <template>
-  <section class="p-6 dark:text-light dark:bg-dark">
+  <section class="p-6 dark:text-light dark:bg-dark rounded-3xl">
     <TaskFormHeader :task-id="taskId" :isNewTask="isNewTask" :isEditing="isEditing" :key="+isEditing" />
     <form @submit.prevent="submit" @keydown.enter="handleFormEnterKey" class="flex flex-col justify-center gap-8">
       <TaskFormInputs ref="inputsRef" v-model="localTask" :isEditing="isEditing" :showError="showInputError" />

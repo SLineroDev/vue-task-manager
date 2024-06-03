@@ -48,7 +48,7 @@ defineExpose<{ focus: () => void }>({ focus })
         :errorMessage="'Select a valid Date'">
         Due Date
       </TaskFormInput>
-      <TaskFormChekbox v-model="task.done" :isEditing="isEditing" />
+      <TaskFormChekbox v-model="task.done" :isEditing="isEditing" :id="`check-form-${task.id}`" />
     </div>
   </div>
 </template>

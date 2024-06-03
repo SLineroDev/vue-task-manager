@@ -32,7 +32,9 @@ function openDialog(taskId?: number) {
       :task="task"
       @open-task="() => openDialog(task.id)" />
   </TransitionGroup>
-  <TaskForm v-if="tasks.length === 0" :task-id="nextId" id="emptyForm" class="mt-3" />
+  <div class="container">
+    <TaskForm v-if="tasks.length === 0" :task-id="nextId" id="emptyForm" class="mt-3" />
+  </div>
   <TaskItemListAddButtonVue :tasks-count="tasks.length" @open-dialog="openDialog" />
 </template>
 
