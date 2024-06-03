@@ -11,7 +11,7 @@ describe('TaskItem.vue', () => {
         }
       },
       props: {
-        task: { id: 1, title: 'Task 1', completed: false }
+        task: { id: 1, title: 'Task 1', done: false }
       }
     })
 
@@ -28,7 +28,7 @@ describe('TaskItem.vue', () => {
         }
       },
       props: {
-        task: { id: 1, title: 'Task 1', completed: false }
+        task: { id: 1, title: 'Task 1', done: false }
       },
       inject: {
         removeTask: {
@@ -55,7 +55,7 @@ describe('TaskItem.vue', () => {
         }
       },
       props: {
-        task: { id: 1, title: 'Task 1', completed: false }
+        task: { id: 1, title: 'Task 1', done: false }
       },
       inject: {
         removeTask: {
