@@ -10,7 +10,7 @@ const { tasksCount } = defineProps({
   <div class="text-center">
     <h2 class="py-6 text-2xl">
       My tasks
-      <span class="text-muted">{{ tasksCount }}</span>
+      <span class="text-stone-500 dark:text-muted">{{ tasksCount }}</span>
     </h2>
     <span v-if="tasksCount == 0">You don't have any tasks yet. Let's create one!</span>
   </div>
