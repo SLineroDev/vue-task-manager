@@ -22,7 +22,7 @@ function openDialog(taskId?: number) {
 </script>
 
 <template>
-  <Teleport to="body">
+  <Teleport to="#dialog">
     <TheDialog ref="dialogRef" />
   </Teleport>
   <TheHeader />

@@ -2,9 +2,9 @@
 import BaseCheck from '@/components/base/BaseCheck.vue'
 import BaseDateReadOnly from '@/components/base/BaseDateReadOnly.vue'
 import AppTrashIcon from '@/components/icons/AppTrashIcon.vue'
-import { TASKS_PROVIDER_KEY } from '@/providers/useTasksProvider'
+import { useTasksProviderInject } from '@/providers/useTasksProvider'
 import type { Task } from '@/types'
-import { inject, type PropType } from 'vue'
+import { type PropType } from 'vue'
 
 const { task } = defineProps({
   task: {
@@ -13,7 +13,7 @@ const { task } = defineProps({
   }
 })
 
-const { removeTask } = inject(TASKS_PROVIDER_KEY)!
+const { removeTask } = useTasksProviderInject()!
 
 const emit = defineEmits(['open-task'])
 </script>
@@ -21,6 +21,7 @@ const emit = defineEmits(['open-task'])
 <template>
   <div class="container flex w-full group">
     <div
+      :data-test-id="`TASK_ITEM_${task.id}`"
       class="box-border z-[1] min-w-0 flex items-center justify-between flex-1 gap-6 py-4 bg-white dark:bg-dark rounded-2xl px-7 hover:ring-inset hover:ring-1 hover:ring-stone-600 focus:"
       @click="() => emit('open-task', task.id)">
       <label class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
@@ -44,6 +45,7 @@ const emit = defineEmits(['open-task'])
       </div>
     </div>
     <div
+      :data-test-id="`REMOVE_TASK_BUTTON_${task.id}`"
       class="items-center self-center hidden h-full p-4 -ml-3 transition-transform -translate-x-full cursor-pointer sm:flex pl-7 text-light dark:text-dark bg-danger rounded-r-2xl hover:bg-danger-hover group-hover:-translate-x-0"
       @click.stop="() => removeTask(task.id)">
       <AppTrashIcon />

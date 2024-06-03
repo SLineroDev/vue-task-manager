@@ -1,10 +1,28 @@
 <script setup lang="ts">
 import TaskForm from '@/components/TaskForm/TaskForm.vue'
-import { useDialogProvider } from '@/providers/useDialogProvider'
 import AppCrossIcon from './icons/AppCrossIcon.vue'
+import { ref } from 'vue'
 
-const { dialogRef, taskId, openDialog, closeDialog, handleClickOutside } = useDialogProvider()
+const dialogRef = ref<HTMLDialogElement | null>(null)
+const taskId = ref<number | null>(null)
+const isNewTask = ref<boolean>(false)
 
+function openDialog(id: number, addTask: boolean = false) {
+  taskId.value = id
+  isNewTask.value = addTask
+  dialogRef.value?.showModal()
+}
+
+function closeDialog() {
+  taskId.value = null
+  dialogRef.value?.close()
+}
+
+function handleClickOutside(event: MouseEvent) {
+  if (event.target === dialogRef.value) {
+    closeDialog()
+  }
+}
 defineExpose({
   openDialog
 })
