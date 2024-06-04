@@ -73,6 +73,7 @@ body {
     background: var(--color-secondary);
     z-index: 2;
   }
+
   @media (prefers-color-scheme: light) {
     ::-webkit-scrollbar-track {
       background: var(--color-light);
@@ -84,5 +85,3 @@ body {
     z-index: 2;
   }
 }
-
-/* Change ::-webkit-scrollbar-track for light theme based on user prefered scheme */
