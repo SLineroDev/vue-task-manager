@@ -26,8 +26,9 @@ function openDialog(taskId?: number) {
     leave-to-class="scale-0 opacity-0"
     class="flex flex-col w-full gap-8 pb-20 overflow-x-hidden overflow-y-auto duration">
     <TaskItem
+      :tabindex="index"
       class="cursor-pointer animate-slideUp"
-      v-for="task in tasks.slice().reverse()"
+      v-for="[index, task] in tasks.slice().reverse().entries()"
       :key="task.id"
       :task="task"
       @open-task="() => openDialog(task.id)" />
