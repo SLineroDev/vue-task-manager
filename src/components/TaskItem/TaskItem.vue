@@ -13,7 +13,12 @@ const { task } = defineProps({
   }
 })
 
-const { removeTask } = useTasksProviderInject()!
+const { removeTask, editTask } = useTasksProviderInject()!
+
+function checkTask() {
+  task.done = !task.done
+  editTask(task)
+}
 
 const emit = defineEmits(['open-task'])
 </script>
@@ -24,7 +29,7 @@ const emit = defineEmits(['open-task'])
       :data-test-id="`TASK_ITEM_${task.id}`"
       class="transition box-border z-[1] min-w-0 flex items-center justify-between flex-1 gap-6 py-4 bg-white dark:bg-dark rounded-2xl px-7 hover:ring-inset hover:ring-1 hover:ring-stone-600 focus:ring-inset focus:ring-1"
       @click="() => emit('open-task', task.id)">
-      <label :for="`check-task-${task.id}`" class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
+      <label :for="`check-task-${task.id}`" class="cursor-pointer" @click.stop.prevent="checkTask">
         <BaseCheck :value="task.done" :id="`check-task-${task.id}`" />
       </label>
       <div class="flex flex-col flex-1 min-w-0 gap-2">
