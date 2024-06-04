@@ -19,11 +19,10 @@ const emit = defineEmits(['open-task'])
 </script>
 
 <template>
-  <div class="container flex w-full group">
+  <div class="container flex w-full group" :class="{ 'ring-primary opacity-60': task.done }">
     <div
       :data-test-id="`TASK_ITEM_${task.id}`"
       class="transition box-border z-[1] min-w-0 flex items-center justify-between flex-1 gap-6 py-4 bg-white dark:bg-dark rounded-2xl px-7 hover:ring-inset hover:ring-1 hover:ring-stone-600 focus:ring-inset focus:ring-1"
-      :class="{ 'ring-primary opacity-60': task.done }"
       @click="() => emit('open-task', task.id)">
       <label :for="`check-task-${task.id}`" class="cursor-pointer" @click.stop.prevent="() => (task.done = !task.done)">
         <BaseCheck :value="task.done" :id="`check-task-${task.id}`" />
