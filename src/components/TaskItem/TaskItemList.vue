@@ -14,7 +14,7 @@ function openDialog(taskId?: number) {
 </script>
 
 <template>
-  <TaskItemListHeader :tasks-count="tasks.length" />
+  <TaskItemListHeader :tasks-count="tasks.length" class="animate-fadeIn" />
   <TransitionGroup
     v-if="tasks.length > 0"
     tag="section"
@@ -24,7 +24,7 @@ function openDialog(taskId?: number) {
     leave-active-class="absolute duration-500 transform"
     enter-from-class="scale-0 opacity-0"
     leave-to-class="scale-0 opacity-0"
-    class="flex flex-col w-full min-h-full gap-8 pb-20 overflow-x-hidden overflow-y-auto">
+    class="flex flex-col w-full min-h-full gap-8 pb-20 overflow-x-hidden overflow-y-auto duration-1000 animate-fadeIn">
     <TaskItem
       :tabindex="index"
       class="cursor-pointer animate-slideUp"
