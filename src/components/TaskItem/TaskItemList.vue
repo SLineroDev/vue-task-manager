@@ -24,7 +24,7 @@ function openDialog(taskId?: number) {
     leave-active-class="absolute duration-500 transform"
     enter-from-class="scale-0 opacity-0"
     leave-to-class="scale-0 opacity-0"
-    class="flex flex-col w-full min-h-full gap-8 pb-20 overflow-x-hidden overflow-y-auto duration-1000 animate-fadeIn">
+    class="flex flex-col w-full min-h-full gap-8 pb-56 overflow-x-hidden overflow-y-auto duration-1000 animate-fadeIn">
     <TaskItem
       :tabindex="index"
       class="cursor-pointer animate-slideUp"
