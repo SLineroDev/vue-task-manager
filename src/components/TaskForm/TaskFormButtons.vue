@@ -13,6 +13,10 @@ const { isNewTask, isEditing } = defineProps({
   isEditing: {
     type: Boolean,
     required: true
+  },
+  hideCancel: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -21,7 +25,10 @@ const emit = defineEmits(['click-cancel', 'click-delete', 'click-edit'])
 
 <template>
   <div class="flex items-center justify-end gap-4 font-semibold select-none">
-    <BaseButton v-if="isNewTask || (!isNewTask && isEditing)" :color="'outline'" @click="emit('click-cancel')">
+    <BaseButton
+      v-if="(isNewTask && !hideCancel) || (!isNewTask && isEditing)"
+      :color="'outline'"
+      @click="emit('click-cancel')">
       <span class="font-semibold">Cancel</span>
     </BaseButton>
     <BaseButton v-if="!isNewTask && !isEditing" :color="'danger'" @click="emit('click-delete')">

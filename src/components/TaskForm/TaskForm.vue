@@ -88,6 +88,7 @@ function submit() {
       <TaskFormButtons
         :isNewTask="isNewTask"
         :isEditing="isEditing"
+        :hide-cancel="taskId === 1"
         @click-cancel="cancel"
         @click-delete="deleteTask"
         @click-edit="onEdit" />
